@@ -5,6 +5,7 @@ import Link from "next/link";
 import Lightbox from "@/components/Lightbox";
 import StarRating from "@/components/StarRating";
 import BuyButton from "@/components/BuyButton";
+import RelatedListings from "@/components/RelatedListings";
 import {
   supabase,
   formatPrice,
@@ -345,6 +346,9 @@ export default function ListingView({ id }: { id: string }) {
           </div>
         )}
       </aside>
+            <div className="lg:col-span-2 xl:col-span-1">
+        <RelatedListings category={listing.category} currentId={listing.id} />
+      </div>
 
       {open !== null && images.length > 0 && (
         <Lightbox images={images} startIndex={open} onClose={() => setOpen(null)} />
