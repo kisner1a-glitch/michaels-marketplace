@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -167,7 +167,7 @@ export default function ListingView({ id }: { id: string }) {
     reviews.length > 0 ? reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length : 0;
 
   return (
-    <main className="mx-auto grid max-w-7xl gap-6 px-4 py-6 lg:grid-cols-[1fr_340px]">
+    <main className="mx-auto grid max-w-[1600px] gap-6 px-4 py-6 lg:grid-cols-[minmax(0,1fr)_320px_320px]">
       <div>
         <div className="flex min-h-[320px] items-center justify-center overflow-hidden rounded-2xl bg-[#d8dce1]">
           {images.length > 0 ? (
@@ -346,7 +346,7 @@ export default function ListingView({ id }: { id: string }) {
           </div>
         )}
       </aside>
-            <div className="lg:col-span-2 xl:col-span-1">
+            <div className="lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:self-start lg:overflow-y-auto">
         <RelatedListings category={listing.category} currentId={listing.id} />
       </div>
 
