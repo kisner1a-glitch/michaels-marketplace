@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Lightbox from "@/components/Lightbox";
 import StarRating from "@/components/StarRating";
 import BuyButton from "@/components/BuyButton";
@@ -26,6 +27,7 @@ type Review = {
 const RATING_WORDS = ["", "Poor", "Fair", "Good", "Very good", "Excellent"];
 
 export default function ListingView({ id }: { id: string }) {
+  const router = useRouter();
   const [listing, setListing] = useState<Listing | null>(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
@@ -94,6 +96,11 @@ export default function ListingView({ id }: { id: string }) {
     }
     load();
   }, [id]);
+
+  function goBack() {
+    if (window.history.length > 1) router.back();
+    else router.push("/");
+  }
 
   async function send() {
     setError("");
@@ -169,7 +176,8 @@ export default function ListingView({ id }: { id: string }) {
   return (
     <main className="mx-auto grid max-w-[1600px] gap-6 px-4 py-6 lg:grid-cols-[minmax(0,1fr)_320px_320px]">
       <div>
-        <div className="flex min-h-[320px] items-center justify-center overflow-hidden rounded-2xl bg-[#d8dce1]">
+        <div className="relative flex min-h-[320px] items-center justify-center overflow-hidden rounded-2xl bg-[#d8dce1]">
+          <button type="button" onClick={goBack} aria-label="Close listing" className="absolute left-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-2xl font-bold leading-none shadow-md transition hover:bg-white active:scale-95">&times;</button>
           {images.length > 0 ? (
             <button
               type="button"
