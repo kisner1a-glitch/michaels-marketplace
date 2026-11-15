@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -139,7 +139,7 @@ export default function CreateItemPage() {
                     aria-label={`Remove photo ${idx + 1}`}
                     className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full bg-black/70 text-sm text-white hover:bg-black"
                   >
-                    Ã—
+                    ×
                   </button>
                 </div>
               ))}

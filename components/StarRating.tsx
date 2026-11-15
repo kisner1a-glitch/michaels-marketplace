@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 
@@ -21,12 +21,12 @@ export default function StarRating({ value, onChange, size = 20 }: Props) {
         className="relative inline-block leading-none"
         style={{ fontSize: size }}
       >
-        <span className="text-[#ced0d4]">â˜…â˜…â˜…â˜…â˜…</span>
+        <span className="text-[#ced0d4]">★★★★★</span>
         <span
           className="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-[#f5b301]"
           style={{ width: `${(value / 5) * 100}%` }}
         >
-          â˜…â˜…â˜…â˜…â˜…
+          ★★★★★
         </span>
       </span>
     );
@@ -53,7 +53,7 @@ export default function StarRating({ value, onChange, size = 20 }: Props) {
           }`}
           style={{ fontSize: size }}
         >
-          â˜…
+          ★
         </button>
       ))}
     </span>
