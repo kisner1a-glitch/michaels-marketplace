@@ -6,7 +6,7 @@ type Flake = { x: number; y: number; r: number; s: number; d: number };
 type AudioState = { ctx: AudioContext; master: GainNode; timer: number | null };
 
 /* "We Wish You a Merry Christmas" (traditional), instrumental, music-box tone */
-const BEAT = 0.52; // seconds per beat
+const BEAT = 0.6; // seconds per beat
 const MELODY: [string, number][] = [
   ["D4", 1],
   ["G4", 1], ["G4", 0.5], ["A4", 0.5], ["G4", 0.5], ["F#4", 0.5],
@@ -23,7 +23,7 @@ const MELODY: [string, number][] = [
 const SEMI: Record<string, number> = {
   C: 0, "C#": 1, D: 2, "D#": 3, E: 4, F: 5, "F#": 6, G: 7, "G#": 8, A: 9, "A#": 10, B: 11,
 };
-const PARTIALS: [number, number][] = [[1, 1], [2, 0.28], [3, 0.1]];
+const BELL: [number, number, number][] = [[1, 1, 1], [2, 0.45, 0.7], [2.76, 0.5, 0.55], [4.07, 0.2, 0.4], [5.4, 0.25, 0.3], [8.93, 0.1, 0.18]];
 
 function freq(name: string): number {
   const m = /^([A-G]#?)(\d)$/.exec(name);
@@ -32,26 +32,23 @@ function freq(name: string): number {
   return 440 * Math.pow(2, (midi - 69) / 12);
 }
 
-function ping(ctx: AudioContext, out: AudioNode, f: number, t: number, dur: number) {
-  const end = t + Math.max(0.6, dur * 2);
-  const g = ctx.createGain();
-  g.gain.setValueAtTime(0.0001, t);
-  g.gain.exponentialRampToValueAtTime(0.5, t + 0.012);
-  g.gain.exponentialRampToValueAtTime(0.0001, end);
-  g.connect(out);
-  for (const [mult, amp] of PARTIALS) {
+function ping(ctx: AudioContext, out: AudioNode, f: number, t: number, _dur: number) {
+  const ring = 2.4;
+  for (const [mult, amp, len] of BELL) {
     const o = ctx.createOscillator();
-    const og = ctx.createGain();
+    const g = ctx.createGain();
+    const end = t + ring * len;
     o.type = "sine";
     o.frequency.value = f * mult;
-    og.gain.value = amp;
-    o.connect(og);
-    og.connect(g);
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(amp * 0.4, t + 0.004);
+    g.gain.exponentialRampToValueAtTime(0.0001, end);
+    o.connect(g);
+    g.connect(out);
     o.start(t);
     o.stop(end + 0.05);
   }
 }
-
 function startAudio(): AudioState | null {
   const w = window as unknown as {
     AudioContext?: typeof AudioContext;
@@ -86,7 +83,7 @@ function startAudio(): AudioState | null {
     let t = at;
     for (const [note, beats] of MELODY) {
       const d = beats * BEAT;
-      if (note !== "R") ping(ctx, bus, freq(note), t, d);
+      if (note !== "R") ping(ctx, bus, freq(note) * 2, t, d);
       t += d;
     }
     const wait = Math.max(0, (t - ctx.currentTime - 4) * 1000);
@@ -300,7 +297,7 @@ export default function ChristmasTheme() {
         aria-label={on ? "Turn off Christmas theme" : "Turn on Christmas theme"}
         title={on ? "Turn off Christmas theme" : "Turn on Christmas theme"}
         className={`fixed bottom-4 right-4 z-[70] flex h-11 w-11 items-center justify-center rounded-full bg-white text-2xl shadow-lg transition hover:scale-105 active:scale-95 ${
-          on ? "" : "opacity-60"
+          on ? "xmas-tree-glow" : "opacity-60"
         }`}
       >
         &#127876;

@@ -120,3 +120,19 @@ body { font-family: "Segoe UI", Helvetica, Arial, sans-serif; }
   z-index: 3;
   pointer-events: none;
 }
+
+/* Glowing, fading Christmas tree button */
+.xmas-tree-glow { animation: tree-glow 2.4s ease-in-out infinite; }
+@keyframes tree-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 214, 90, 0), 0 0 4px 1px rgba(255, 214, 90, 0.25), 0 2px 6px rgba(0, 0, 0, 0.25);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(255, 214, 90, 0.28), 0 0 18px 7px rgba(80, 220, 130, 0.75), 0 0 28px 12px rgba(255, 214, 90, 0.45);
+    filter: brightness(1.12);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .xmas-tree-glow { animation: none; box-shadow: 0 0 14px 5px rgba(80, 220, 130, 0.6), 0 0 0 4px rgba(255, 214, 90, 0.3); }
+}
