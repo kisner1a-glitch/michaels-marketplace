@@ -43,10 +43,10 @@ export default function Browse({ category }: { category?: string }) {
 
   return (
     <div className="mx-auto flex max-w-[1800px] flex-col gap-6 px-4 py-6 md:flex-row">
-      <aside className="rounded-xl border border-[#c4c9d0] bg-[#dde1e6] p-3 md:sticky md:top-4 md:max-h-[calc(100vh-2rem)] md:w-64 md:shrink-0 md:self-start md:overflow-y-auto">
+      <aside className="rounded-xl border border-[#ced0d4] bg-white p-3 md:sticky md:top-4 md:max-h-[calc(100vh-2rem)] md:w-64 md:shrink-0 md:self-start md:overflow-y-auto">
         <Link
           href="/create"
-          className="mb-4 block rounded-xl bg-[#1e88e5] px-4 py-2.5 text-center font-bold text-white hover:bg-[#1976d2]"
+          className="mb-4 block rounded-xl bg-[#1877f2] px-4 py-2.5 text-center font-bold text-white hover:bg-[#166fe5]"
         >
           + Create new listing
         </Link>
@@ -54,7 +54,7 @@ export default function Browse({ category }: { category?: string }) {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search listings"
-          className="mb-4 w-full rounded-xl border border-[#c4c9d0] bg-white px-3 py-2.5 text-[15px] focus:border-[#1e88e5] focus:outline-none focus:ring-2 focus:ring-[#1e88e5]/30"
+          className="mb-4 w-full rounded-xl border border-[#ced0d4] bg-white px-3 py-2.5 text-[15px] focus:border-[#1877f2] focus:outline-none focus:ring-2 focus:ring-[#1877f2]/30"
         />
         <h2 className="mb-2 text-xl font-bold">Categories</h2>
         <nav className="flex flex-col">
@@ -66,7 +66,7 @@ export default function Browse({ category }: { category?: string }) {
                 href={`/category/${slugify(c)}`}
                 className={`rounded-lg px-3 py-1.5 text-[15px] ${
                   active
-                    ? "bg-[#1e88e5]/15 font-bold text-[#1e88e5]"
+                    ? "bg-[#1877f2]/15 font-bold text-[#1877f2]"
                     : "text-[#1c1e21] hover:bg-black/5"
                 }`}
               >

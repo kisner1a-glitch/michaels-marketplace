@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 
@@ -21,12 +21,12 @@ export default function StarRating({ value, onChange, size = 20 }: Props) {
         className="relative inline-block leading-none"
         style={{ fontSize: size }}
       >
-        <span className="text-[#c4c9d0]">★★★★★</span>
+        <span className="text-[#ced0d4]">â˜…â˜…â˜…â˜…â˜…</span>
         <span
           className="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-[#f5b301]"
           style={{ width: `${(value / 5) * 100}%` }}
         >
-          ★★★★★
+          â˜…â˜…â˜…â˜…â˜…
         </span>
       </span>
     );
@@ -49,11 +49,11 @@ export default function StarRating({ value, onChange, size = 20 }: Props) {
           aria-label={`${n} star${n === 1 ? "" : "s"}`}
           aria-pressed={value === n}
           className={`px-0.5 leading-none transition-transform hover:scale-110 active:scale-90 ${
-            n <= shown ? "text-[#f5b301]" : "text-[#c4c9d0]"
+            n <= shown ? "text-[#f5b301]" : "text-[#ced0d4]"
           }`}
           style={{ fontSize: size }}
         >
-          ★
+          â˜…
         </button>
       ))}
     </span>

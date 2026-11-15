@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+﻿import { Suspense } from "react";
 import Link from "next/link";
 import Browse from "@/components/Browse";
 import { categoryFromSlug } from "@/lib/supabase";
@@ -15,7 +15,7 @@ async function CategoryContent({
     return (
       <div className="mx-auto max-w-3xl px-4 py-10">
         <p className="mb-4">Category not found.</p>
-        <Link href="/" className="font-semibold text-[#1e88e5]">
+        <Link href="/" className="font-semibold text-[#1877f2]">
           Back to Marketplace
         </Link>
       </div>

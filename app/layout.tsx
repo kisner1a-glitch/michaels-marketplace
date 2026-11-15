@@ -22,11 +22,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen bg-[#e9ecef] text-[#1c1e21] antialiased">
+      <body className="min-h-screen bg-[#f0f2f5] text-[#1c1e21] antialiased">
         <HeaderShell>
           <Link href="/" className="inline-flex items-center gap-2">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#1e88e5] text-2xl font-extrabold text-white">
-              F
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#1877f2] text-2xl font-extrabold text-white">
+              M
             </span>
             <span className="text-lg font-bold">Marketplace</span>
           </Link>

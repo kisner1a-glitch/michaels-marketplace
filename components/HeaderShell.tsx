@@ -6,7 +6,7 @@ import NavControls from "@/components/NavControls";
 
 function Bar({ children, width }: { children: React.ReactNode; width: string }) {
   return (
-    <header className="border-b border-[#c4c9d0]">
+    <header className="bg-white shadow-[0_1px_3px_rgba(0,0,0,0.15)]">
       <div className={`mx-auto flex items-center justify-between px-4 py-2 ${width}`}>
         {children}
         <NavControls />

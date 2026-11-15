@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -102,7 +102,7 @@ export default function CreateItemPage() {
       <section className="space-y-3">
         <h1 className="text-2xl font-extrabold">Item for sale</h1>
 
-        <label className="flex h-32 cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed border-[#c4c9d0] bg-white text-lg text-[#65676b] hover:border-[#1e88e5]">
+        <label className="flex h-32 cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed border-[#ced0d4] bg-white text-lg text-[#65676b] hover:border-[#1877f2]">
           <span>Add photos</span>
           <span className="text-sm">
             {files.length}/{MAX_IMAGES} added. You can select several at once.
@@ -139,7 +139,7 @@ export default function CreateItemPage() {
                     aria-label={`Remove photo ${idx + 1}`}
                     className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full bg-black/70 text-sm text-white hover:bg-black"
                   >
-                    ×
+                    Ã—
                   </button>
                 </div>
               ))}

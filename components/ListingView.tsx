@@ -150,7 +150,7 @@ export default function ListingView({ id }: { id: string }) {
     return (
       <div className="mx-auto max-w-3xl px-4 py-10">
         <p className="mb-4">Listing not found.</p>
-        <Link href="/" className="font-semibold text-[#1e88e5]">
+        <Link href="/" className="font-semibold text-[#1877f2]">
           Back to Marketplace
         </Link>
       </div>
@@ -203,7 +203,7 @@ export default function ListingView({ id }: { id: string }) {
                 onDoubleClick={() => setOpen(idx)}
                 aria-label={`Show photo ${idx + 1}`}
                 className={`h-20 w-20 shrink-0 overflow-hidden rounded-lg border-2 ${
-                  idx === sel ? "border-[#1e88e5]" : "border-transparent"
+                  idx === sel ? "border-[#1877f2]" : "border-transparent"
                 }`}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -249,7 +249,7 @@ export default function ListingView({ id }: { id: string }) {
         </div>
 
         {/* Tabs */}
-        <div className="mt-6 flex border-b border-[#c4c9d0]">
+        <div className="mt-6 flex border-b border-[#ced0d4]">
           {(["details", "reviews"] as const).map((t) => (
             <button
               key={t}
@@ -257,7 +257,7 @@ export default function ListingView({ id }: { id: string }) {
               onClick={() => setTab(t)}
               className={`-mb-px border-b-2 px-4 py-2 text-[15px] font-bold transition active:scale-95 ${
                 tab === t
-                  ? "border-[#1e88e5] text-[#1e88e5]"
+                  ? "border-[#1877f2] text-[#1877f2]"
                   : "border-transparent text-[#65676b] hover:text-[#1c1e21]"
               }`}
             >
@@ -354,7 +354,7 @@ export default function ListingView({ id }: { id: string }) {
           </div>
         )}
       </aside>
-            <div className="related-col lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:self-start lg:overflow-y-auto lg:border-l lg:border-[#c4c9d0] lg:pl-6 lg:pr-1 [&_a]:rounded-xl [&_a]:bg-white [&_a]:p-2 [&_a]:shadow-[0_1px_4px_rgba(0,0,0,0.18)] [&_a]:transition [&_a:hover]:shadow-[0_3px_10px_rgba(0,0,0,0.22)]">
+            <div className="related-col lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:self-start lg:overflow-y-auto lg:border-l lg:border-[#ced0d4] lg:pl-6 lg:pr-1 [&_a]:rounded-xl [&_a]:bg-white [&_a]:p-2 [&_a]:shadow-[0_1px_4px_rgba(0,0,0,0.18)] [&_a]:transition [&_a:hover]:shadow-[0_3px_10px_rgba(0,0,0,0.22)]">
         <RelatedListings category={listing.category} currentId={listing.id} />
       </div>
 

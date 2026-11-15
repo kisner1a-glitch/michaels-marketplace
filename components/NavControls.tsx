@@ -102,7 +102,7 @@ export default function NavControls() {
         {menuOpen && (
           <div
             role="menu"
-            className="absolute right-0 top-full z-50 mt-2 w-48 rounded-xl border border-[#c4c9d0] bg-white p-2 shadow-lg"
+            className="absolute right-0 top-full z-50 mt-2 w-48 rounded-xl border border-[#ced0d4] bg-white p-2 shadow-lg"
           >
             <p className="px-2 py-1 text-xs font-semibold uppercase text-[#65676b]">Theme</p>
             {(["light", "dark", "system"] as Mode[]).map((m) => (
@@ -113,7 +113,7 @@ export default function NavControls() {
                 aria-checked={mode === m}
                 onClick={() => choose(m)}
                 className={`flex w-full items-center justify-between rounded-lg px-2 py-1.5 text-left text-[15px] hover:bg-black/5 ${
-                  mode === m ? "font-bold text-[#1e88e5]" : ""
+                  mode === m ? "font-bold text-[#1877f2]" : ""
                 }`}
               >
                 <span className="capitalize">{m}</span>
@@ -132,7 +132,7 @@ export default function NavControls() {
       </Link>
       <Link
         href="/signup"
-        className="rounded-xl bg-[#1e88e5] px-3 py-2 text-[15px] font-bold text-white hover:bg-[#1976d2]"
+        className="rounded-xl bg-[#1877f2] px-3 py-2 text-[15px] font-bold text-white hover:bg-[#166fe5]"
       >
         Sign up
       </Link>

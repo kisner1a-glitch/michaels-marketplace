@@ -1,7 +1,7 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 html {
-  background: #e9ecef;
+  background: #f0f2f5;
 }
 
 body {
@@ -9,7 +9,7 @@ body {
 }
 /* Dark theme (the .dark class is set on <html> by the nav toggle) */
 .dark { color-scheme: dark; }
-.dark .bg-\[\#e9ecef\] { background-color: #18191a; }
+.dark .bg-\[\#f0f2f5\] { background-color: #18191a; }
 .dark .bg-\[\#dde1e6\] { background-color: #242526; }
 .dark .bg-\[\#d8dce1\] { background-color: #3a3b3c; }
 .dark .bg-white { background-color: #242526; }
@@ -17,7 +17,7 @@ body {
 .dark .text-\[\#1c1e21\] { color: #e4e6eb; }
 .dark .hover\:text-\[\#1c1e21\]:hover { color: #e4e6eb; }
 .dark .text-\[\#65676b\] { color: #b0b3b8; }
-.dark .border-\[\#c4c9d0\] { border-color: #3e4042; }
+.dark .border-\[\#ced0d4\] { border-color: #3e4042; }
 .dark .border-\[\#d8dce1\] { border-color: #3e4042; }
 .dark .hover\:bg-black\/5:hover { background-color: rgba(255, 255, 255, 0.08); }
 .dark .bg-green-100 { background-color: #1b3a24; }
@@ -26,5 +26,9 @@ body {
 
 .dark .related-col a { background-color: #242526; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); }
 .dark .related-col a:hover { background-color: #2f3031; }
-.dark .bg-\[\#f0f2f5\] { background-color: #3a3b3c; }
 .dark .bg-\[\#f5f6f7\] { background-color: #3a3b3c; }
+
+/* Facebook-style look */
+body { font-family: "Segoe UI", Helvetica, Arial, sans-serif; }
+.dark .text-\[\#1877f2\] { color: #2d88ff; }
+.dark .bg-\[\#1877f2\]\/15 { background-color: rgba(45, 136, 255, 0.2); }

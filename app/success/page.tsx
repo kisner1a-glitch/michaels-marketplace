@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+﻿import { Suspense } from "react";
 import Link from "next/link";
 import AutoRefresh from "@/components/AutoRefresh";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
@@ -51,7 +51,7 @@ async function OrderStatus({
       </p>
       <Link
         href={`/listing/${order.listing_id}`}
-        className="mt-4 inline-block font-semibold text-[#1e88e5]"
+        className="mt-4 inline-block font-semibold text-[#1877f2]"
       >
         View the listing
       </Link>
