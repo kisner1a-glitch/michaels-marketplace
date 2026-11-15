@@ -1,4 +1,5 @@
-﻿import type { Metadata } from "next";
+﻿import HeaderShell from "@/components/HeaderShell";
+import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 
@@ -15,14 +16,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen bg-[#e9ecef] text-[#1c1e21] antialiased">
-        <header className="mx-auto max-w-[1600px] px-4 pt-4">
+        <HeaderShell>
           <Link href="/" className="inline-flex items-center gap-2">
             <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#1e88e5] text-2xl font-extrabold text-white">
               F
             </span>
             <span className="text-lg font-bold">Marketplace</span>
           </Link>
-        </header>
+        </HeaderShell>
         {children}
       </body>
     </html>
