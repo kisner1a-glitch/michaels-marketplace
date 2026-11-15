@@ -7,6 +7,10 @@ export async function POST(req: Request) {
   const secret = process.env.STRIPE_WEBHOOK_SECRET;
   const signature = req.headers.get("stripe-signature");
   if (!secret || !signature) {
+    console.error("webhook: not configured", {
+      hasSecret: !!secret,
+      hasSignature: !!signature,
+    });
     return NextResponse.json({ error: "Webhook not configured." }, { status: 400 });
   }
 
@@ -15,7 +19,15 @@ export async function POST(req: Request) {
   let event: Stripe.Event;
   try {
     event = stripe.webhooks.constructEvent(rawBody, signature, secret);
-  } catch {
+  } catch (e) {
+    // Temporary diagnostics: never logs the secret itself, only its shape
+    console.error("webhook: signature check failed", {
+      message: e instanceof Error ? e.message : String(e),
+      secretLength: secret.length, // a correct whsec_ secret has 38 characters
+      startsWithWhsec: secret.startsWith("whsec_"),
+      hasWhitespace: /\s/.test(secret),
+      hasBacktickOrQuote: /[`"']/.test(secret),
+    });
     return NextResponse.json({ error: "Invalid signature." }, { status: 400 });
   }
 
@@ -69,6 +81,7 @@ export async function POST(req: Request) {
           { onConflict: "stripe_session_id", ignoreDuplicates: true }
         );
         if (orderError) {
+          console.error("webhook: saving order failed", orderError.message);
           // Non-200 makes Stripe retry later
           return NextResponse.json({ error: orderError.message }, { status: 500 });
         }
@@ -77,6 +90,11 @@ export async function POST(req: Request) {
           .from("listings")
           .update({ status: "sold" })
           .eq("id", listing.id);
+      } else {
+        console.error("webhook: event skipped, seller does not match", {
+          listingFound: !!listing,
+          sellerFound: !!seller,
+        });
       }
     }
   }
