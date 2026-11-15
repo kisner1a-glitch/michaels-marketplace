@@ -32,3 +32,72 @@ body {
 body { font-family: "Segoe UI", Helvetica, Arial, sans-serif; }
 .dark .text-\[\#1877f2\] { color: #2d88ff; }
 .dark .bg-\[\#1877f2\]\/15 { background-color: rgba(45, 136, 255, 0.2); }
+
+/* Christmas theme (the .xmas class is set on html by ChristmasTheme) */
+.xmas body { padding-top: 26px; }
+
+.xmas-lights { position: fixed; top: 0; left: 0; right: 0; height: 26px; z-index: 60; display: flex; justify-content: center; align-items: flex-start; overflow: hidden; pointer-events: none; background: linear-gradient(#0f4c2a, #166534); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35); }
+.xmas-lights .bulb { flex: none; width: 9px; height: 13px; margin: 6px 8px 0; border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%; animation: xmas-blink 1.6s infinite ease-in-out; }
+.xmas-lights .bulb-0 { background: #ff4d4d; color: #ff4d4d; }
+.xmas-lights .bulb-1 { background: #ffd84d; color: #ffd84d; }
+.xmas-lights .bulb-2 { background: #4dff88; color: #4dff88; }
+.xmas-lights .bulb-3 { background: #4da6ff; color: #4da6ff; }
+@keyframes xmas-blink {
+  0%, 100% { opacity: 1; box-shadow: 0 0 9px 3px currentColor; }
+  50% { opacity: 0.3; box-shadow: 0 0 2px 0 currentColor; }
+}
+@media (prefers-reduced-motion: reduce) { .xmas-lights .bulb { animation: none; } }
+
+/* Snow drifts on cards, photo frame, create button and header */
+.xmas section a.group > div:first-child,
+.xmas .related-col a,
+.xmas a[href="/create"] { position: relative; }
+.xmas .related-col a,
+.xmas a[href="/create"] { overflow: hidden; }
+
+.xmas section a.group > div:first-child::before,
+.xmas .related-col a::before,
+.xmas main.grid > div:first-child > div:first-child::before,
+.xmas a[href="/create"]::before,
+.xmas header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 12px;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 10px 0, #fff 9px, transparent 10px) 0 0 / 20px 12px repeat-x,
+    linear-gradient(#fff, #fff) 0 0 / 100% 4px no-repeat;
+  filter: drop-shadow(0 1px 1px rgba(60, 100, 150, 0.45));
+}
+.xmas header { position: relative; }
+.xmas header::after { top: 100%; z-index: 5; }
+
+/* Snow cap on the logo */
+.xmas header a[href="/"] > span:first-child { position: relative; }
+.xmas header a[href="/"] > span:first-child::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 2px;
+  right: 2px;
+  height: 11px;
+  border-radius: 11px 11px 4px 4px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+/* Icy top edge on the sidebar */
+.xmas aside[class*="rounded-xl"] { border-top: 6px solid #cfe6ff; }
+
+/* Christmas colors: red buttons, green accents */
+.xmas .bg-\[\#1877f2\] { background-color: #c62828; }
+.xmas .hover\:bg-\[\#166fe5\]:hover { background-color: #a31f1f; }
+.xmas .text-\[\#1877f2\] { color: #1b8a3f; }
+.xmas .border-\[\#1877f2\] { border-color: #1b8a3f; }
+.xmas .bg-\[\#1877f2\]\/15 { background-color: rgba(27, 138, 63, 0.15); }
+.dark.xmas .text-\[\#1877f2\] { color: #4cd37b; }

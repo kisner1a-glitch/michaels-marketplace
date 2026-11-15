@@ -1,4 +1,5 @@
-﻿import HeaderShell from "@/components/HeaderShell";
+﻿import ChristmasTheme from "@/components/ChristmasTheme";
+import HeaderShell from "@/components/HeaderShell";
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
@@ -31,6 +32,7 @@ export default function RootLayout({
             <span className="text-lg font-bold">Marketplace</span>
           </Link>
         </HeaderShell>
+        <ChristmasTheme />
         {children}
       </body>
     </html>
