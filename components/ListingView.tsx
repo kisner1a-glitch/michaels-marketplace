@@ -346,7 +346,7 @@ export default function ListingView({ id }: { id: string }) {
           </div>
         )}
       </aside>
-            <div className="lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:self-start lg:overflow-y-auto">
+            <div className="lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:self-start lg:overflow-y-auto lg:border-l lg:border-[#c4c9d0] lg:pl-6 lg:pr-1 [&_a]:rounded-xl [&_a]:bg-white [&_a]:p-2 [&_a]:shadow-[0_1px_4px_rgba(0,0,0,0.18)] [&_a]:transition [&_a:hover]:shadow-[0_3px_10px_rgba(0,0,0,0.22)]">
         <RelatedListings category={listing.category} currentId={listing.id} />
       </div>
 
