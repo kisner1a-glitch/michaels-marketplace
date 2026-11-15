@@ -43,7 +43,7 @@ export default function Browse({ category }: { category?: string }) {
 
   return (
     <div className="mx-auto flex max-w-[1800px] flex-col gap-6 px-4 py-6 md:flex-row">
-      <aside className="md:w-56 md:shrink-0">
+      <aside className="rounded-xl border border-[#c4c9d0] bg-[#dde1e6] p-3 md:sticky md:top-4 md:max-h-[calc(100vh-2rem)] md:w-64 md:shrink-0 md:self-start md:overflow-y-auto">
         <Link
           href="/create"
           className="mb-4 block rounded-xl bg-[#1e88e5] px-4 py-2.5 text-center font-bold text-white hover:bg-[#1976d2]"
