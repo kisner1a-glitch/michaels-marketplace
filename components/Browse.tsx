@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -42,7 +42,7 @@ export default function Browse({ category }: { category?: string }) {
     : listings;
 
   return (
-    <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-6 md:flex-row">
+    <div className="mx-auto flex max-w-[1800px] flex-col gap-6 px-4 py-6 md:flex-row">
       <aside className="md:w-56 md:shrink-0">
         <Link
           href="/create"

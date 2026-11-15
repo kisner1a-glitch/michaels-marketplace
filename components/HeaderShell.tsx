@@ -3,20 +3,18 @@
 import { Suspense } from "react";
 import { usePathname } from "next/navigation";
 
-function WideOnListing({ children }: { children: React.ReactNode }) {
+function HeaderBar({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const wide = pathname.startsWith("/listing/");
-  return (
-    <header className={`mx-auto px-4 pt-4 ${wide ? "max-w-[1600px]" : "max-w-7xl"}`}>
-      {children}
-    </header>
-  );
+  const listing = pathname.startsWith("/listing/");
+  const browse = pathname === "/" || pathname.startsWith("/category/");
+  const width = listing ? "max-w-[1600px]" : browse ? "max-w-[1800px]" : "max-w-7xl";
+  return <header className={`mx-auto px-4 pt-4 ${width}`}>{children}</header>;
 }
 
 export default function HeaderShell({ children }: { children: React.ReactNode }) {
   return (
-    <Suspense fallback={<header className="mx-auto max-w-7xl px-4 pt-4">{children}</header>}>
-      <WideOnListing>{children}</WideOnListing>
+    <Suspense fallback={<header className="mx-auto max-w-[1800px] px-4 pt-4">{children}</header>}>
+      <HeaderBar>{children}</HeaderBar>
     </Suspense>
   );
 }
