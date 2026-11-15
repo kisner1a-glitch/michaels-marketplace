@@ -7,3 +7,19 @@ html {
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+/* Dark theme (the .dark class is set on <html> by the nav toggle) */
+.dark { color-scheme: dark; }
+.dark .bg-\[\#e9ecef\] { background-color: #18191a; }
+.dark .bg-\[\#dde1e6\] { background-color: #242526; }
+.dark .bg-\[\#d8dce1\] { background-color: #3a3b3c; }
+.dark .bg-white { background-color: #242526; }
+.dark .bg-white\/90 { background-color: rgba(36, 37, 38, 0.9); }
+.dark .text-\[\#1c1e21\] { color: #e4e6eb; }
+.dark .hover\:text-\[\#1c1e21\]:hover { color: #e4e6eb; }
+.dark .text-\[\#65676b\] { color: #b0b3b8; }
+.dark .border-\[\#c4c9d0\] { border-color: #3e4042; }
+.dark .border-\[\#d8dce1\] { border-color: #3e4042; }
+.dark .hover\:bg-black\/5:hover { background-color: rgba(255, 255, 255, 0.08); }
+.dark .bg-green-100 { background-color: #1b3a24; }
+.dark .text-green-800 { color: #7ee2a0; }
+.dark .text-red-600 { color: #ff7b7b; }
