@@ -101,3 +101,22 @@ body { font-family: "Segoe UI", Helvetica, Arial, sans-serif; }
 .xmas .border-\[\#1877f2\] { border-color: #1b8a3f; }
 .xmas .bg-\[\#1877f2\]\/15 { background-color: rgba(27, 138, 63, 0.15); }
 .dark.xmas .text-\[\#1877f2\] { color: #4cd37b; }
+
+/* Santa hat on the logo (replaces the snow cap) */
+.xmas header > div { padding-top: 24px; }
+.xmas header a[href="/"] > span:first-child::before {
+  content: "";
+  position: absolute;
+  top: -21px;
+  left: -7px;
+  right: auto;
+  width: 48px;
+  height: 33px;
+  border-radius: 0;
+  box-shadow: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 44'%3E%3Cpath d='M7 36Q9 9 37 8Q51 8 57 25Q47 17 41 23L46 36Z' fill='%23d32f2f'/%3E%3Cpath d='M7 36Q9 9 37 8Q31 14 27 36Z' fill='%23ef5350'/%3E%3Crect x='2' y='31' width='47' height='11' rx='5.5' fill='%23fff' stroke='%23cfd8dc'/%3E%3Ccircle cx='57' cy='25' r='6' fill='%23fff' stroke='%23cfd8dc'/%3E%3C/svg%3E") center / contain no-repeat;
+  transform: rotate(-9deg);
+  transform-origin: 50% 100%;
+  z-index: 3;
+  pointer-events: none;
+}
