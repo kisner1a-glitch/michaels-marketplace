@@ -23,6 +23,7 @@ export default function CreateItemPage() {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState(CATEGORIES[0]);
   const [location, setLocation] = useState("");
+  const [sellerName, setSellerName] = useState("");
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
   const [saving, setSaving] = useState(false);
@@ -80,6 +81,7 @@ export default function CreateItemPage() {
           description: description.trim(),
           price: priceNum,
           email: email.trim(),
+          seller_name: sellerName.trim() || null,
           category,
           location: location.trim() || null,
           image_url: urls[0],
@@ -156,6 +158,7 @@ export default function CreateItemPage() {
           ))}
         </select>
         <input className={inputClass} placeholder="Location (optional)" maxLength={120} value={location} onChange={(e) => setLocation(e.target.value)} />
+        <input className={inputClass} placeholder="Seller name (optional)" maxLength={80} value={sellerName} onChange={(e) => setSellerName(e.target.value)} />
         <input className={inputClass} placeholder="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <textarea className={inputClass + " h-32"} placeholder="Description" maxLength={2000} value={description} onChange={(e) => setDescription(e.target.value)} />
 
@@ -189,7 +192,7 @@ export default function CreateItemPage() {
         <p className="text-2xl font-extrabold">{priceOk ? formatPrice(priceNum) : "Price"}</p>
         <p className="mt-6 text-[#65676b]">Listed just now{location ? ` in ${location}` : ""}</p>
         <p className="mt-6 font-semibold">Seller information</p>
-        <p className="break-all text-[#65676b]">{email || "your email"}</p>
+        <p className="break-all text-[#65676b]">{sellerName || email || "your email"}</p>
       </section>
 
       {open !== null && previews.length > 0 && (

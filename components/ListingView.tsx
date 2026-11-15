@@ -155,8 +155,12 @@ export default function ListingView({ id }: { id: string }) {
       ? [listing.image_url]
       : [];
 
-  // If the seller never set a name, show the first part of their email
-  const displayName = sellerName || listing.email.split("@")[0];
+  // Name shown under "Seller information":
+  // 1) the name typed on this listing, 2) the seller's saved name, 3) the first part of their email
+  const listingSellerName = (
+    (listing as Listing & { seller_name?: string | null }).seller_name || ""
+  ).trim();
+  const displayName = listingSellerName || sellerName || listing.email.split("@")[0];
   const sold = (listing as Listing & { status?: string }).status === "sold";
   const average =
     reviews.length > 0 ? reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length : 0;
